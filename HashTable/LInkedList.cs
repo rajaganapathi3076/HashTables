@@ -33,6 +33,34 @@ namespace HashTable
                 current.Next = newNode;
             }
         }
+        public void Remove(TKey key)
+        {
+            if (Head == null)
+            {
+                return;
+            }
+
+            if (Head.Key.Equals(key))
+            {
+                Head = Head.Next;
+                return;
+            }
+
+            var current = Head;
+            var prev = Head;
+
+            while (current != null)
+            {
+                if (current.Key.Equals(key))
+                {
+                    prev.Next = current.Next;
+                    return;
+                }
+
+                prev = current;
+                current = current.Next;
+            }
+        }
 
         public void Traverse()
         {

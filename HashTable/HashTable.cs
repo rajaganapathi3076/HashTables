@@ -30,6 +30,12 @@ namespace HashTable
             int index = GetHash(key);
             buckets[index].Insert(key, value);
         }
+        public void Remove(TKey key)
+        {
+            int index = GetHash(key);
+            buckets[index].Remove(key);
+        }
+
 
         public TValue GetFrequency(TKey key)
         {
